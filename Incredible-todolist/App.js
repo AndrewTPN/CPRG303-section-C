@@ -1,21 +1,26 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import Customtextinput from './components/customtextinput';
+/**
+ * My To Do List App
+ *
+ * @format
+ */
 
-export default function App() {
+import React from 'react';
+import { SafeAreaView, ScrollView, StyleSheet } from 'react-native';
+import ToDoList from './app/ToDoList';
+import ToDoForm from './app/ToDoForm';
+
+
+function App() {
   return (
-    <View style={styles.container}>
-      <Customtextinput />
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaView>
+      <ScrollView>
+        <ToDoList />
+      </ScrollView>
+      <ToDoForm />
+    </SafeAreaView>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+const styles = StyleSheet.create({});
+
+export default App;

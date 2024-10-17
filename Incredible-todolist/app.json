@@ -1,7 +1,8 @@
 {
   "expo": {
-    "name": "Incredible-todolist",
-    "slug": "Incredible-todolist",
+    "name": "Incredible-To-Do-List",
+    "scheme": "Incredible-To-Do-List",
+    "slug": "Incredible-To-Do-List",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
