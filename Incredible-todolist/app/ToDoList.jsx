@@ -1,39 +1,39 @@
-import React from 'react';
-import { Pressable, View, Text, StyleSheet } from 'react-native';
+import React from "react";
+import { View, Text, StyleSheet } from "react-native";
 
-const ToDoList = () => {
+// Custom tag names for clarity
+const TaskListContainer = View;
+const TaskItem = View;
+const TaskText = Text;
+
+const ToDoList = ({ tasks }) => {
   return (
-    <>
-      <Pressable>
-        <View style={[styles.task, styles.completed]}>
-          <Text style={styles.taskText}>Do laundry</Text>
-        </View>
-      </Pressable>
-      <Pressable>
-        <View style={styles.task}>
-          <Text style={styles.taskText}>Go to gym</Text>
-        </View>
-      </Pressable>
-      <Pressable>
-        <View style={[styles.task, styles.completed]}>
-          <Text style={styles.taskText}>Walk dog</Text>
-        </View>
-      </Pressable>
-    </>
+    <TaskListContainer style={styles.listContainer}>
+      {tasks.map((task, index) => (
+        <TaskItem key={index} style={styles.taskContainer}>
+          <TaskText style={styles.taskText}>{task}</TaskText>
+        </TaskItem>
+      ))}
+    </TaskListContainer>
   );
 };
 
 const styles = StyleSheet.create({
-  task: {
-    padding: 10,
-    borderBottomWidth: 1,
-    borderColor: '#ccc',
+  listContainer: {
+    width: "35%",
+    marginTop: 10,
   },
-  completed: {
-    backgroundColor: '#e0e0e0',
+  taskContainer: {
+    backgroundColor: "#FFF",
+    padding: 10,
+    borderRadius: 8,
+    marginBottom: 6,
+    borderColor: "#ddd",
+    borderWidth: 1,
   },
   taskText: {
     fontSize: 16,
+    color: "#333",
   },
 });
 

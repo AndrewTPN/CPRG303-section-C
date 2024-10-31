@@ -1,46 +1,39 @@
-/**
- * @author: Tan Phu Nguyen
- * @project: Lab Assignment 1: Spinning Up React Native App
- */
+import React, { useState } from "react";
+import { StyleSheet, View, Text } from "react-native";
+import ToDoForm from "./ToDoForm";
+import ToDoList from "./ToDoList";
 
+const TaskListContainer = View; // Custom container tag
+const TaskHeader = Text;
 
+export default function App() {
+  const [tasks, setTasks] = useState(['Do laundry', 'Go to gym', 'Walk dog']);
 
-import { StyleSheet, View } from "react-native";
-import CustomState from "../components/customState";
-import SumState from "../components/sumState";
-import App from "../App";
+  const addTask = (newTask) => {
+    setTasks([...tasks, newTask]);
+  };
 
-
-//function to create a Page() -< Main function.
-export default function Page() {
   return (
-    <View style={styles.container}>
-      <View style={styles.main}>
-        <App/>
-      </View>
-    </View>
+    <TaskListContainer style={styles.container}>
+      <TaskHeader style={styles.header}>To Do List</TaskHeader>
+      <ToDoForm addTask={addTask} />
+      <ToDoList tasks={tasks} />
+    </TaskListContainer>
   );
 }
 
-//Styling.
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: "#f5f5f7",
     alignItems: "center",
-    padding: 24,
+    padding: 20,
   },
-  main: {
-    flex: 1,
-    justifyContent: "center",
-    maxWidth: 960,
-    marginHorizontal: "auto",
-  },
-  title: {
-    fontSize: 64,
+  header: {
+    fontSize: 28,
     fontWeight: "bold",
-  },
-  subtitle: {
-    fontSize: 36,
-    color: "#38434D",
+    color: "#333",
+    marginVertical: 16,
   },
 });
+
